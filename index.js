@@ -15,7 +15,7 @@ msRestAzure.loginWithAppServiceMSI({resource: 'https://vault.azure.net'}).then( 
     var vaultUri = "https://" + "DevOpsDemo" + ".vault.azure.net/";
     
     // We're setting the Secret value here and retrieving the secret value
-    keyVaultClient.setSecret(vaultUri, 'my-secret', 'test-secret-value', {})
+    /* keyVaultClient.setSecret(vaultUri, 'my-secret', 'test-secret-value', {})
         .then( (kvSecretBundle, httpReq, httpResponse) => {
             console.log("Secret id: '" + kvSecretBundle.id + "'.");
             return keyVaultClient.getSecret(kvSecretBundle.id, {});
@@ -26,13 +26,13 @@ msRestAzure.loginWithAppServiceMSI({resource: 'https://vault.azure.net'}).then( 
         })
         .catch( (err) => {
             console.log(err);
-        });
+        }); */
 
     // Below code demonstrates how to retrieve a secret value
     
-    // keyVaultClient.getSecret(vaultUri, "TopSecret", "").then(function(response){
-    //     console.log(response);    
-    // })
+    keyVaultClient.getSecret(vaultUri, "TopSecret", "").then(function(response){
+        console.log(response);    
+    })
 });
 
 var port = process.env.PORT || 1337;
